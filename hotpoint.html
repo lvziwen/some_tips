@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>hotpoint</title>
+
+</head>
+<body>
+    <div class="carousel">
+        <div class="carousel-items">
+            <div class="item"><span>image_url: </span><input name="image_url" ></div>
+        </div>
+        <input type="button" onclick="add_item('carousel')" value="add">
+    </div>
+    <input type="button" onclick="print_items()" value="print">
+<script src="jQuery.js"></script>
+<script src="bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+<script>
+    function add_item(item_type){
+        if (item_type === "carousel"){
+            $(".carousel-items").append("<div class='item'><span>image_url: </span><input name='image_url' ></div>");
+        }else{
+            $(".carousel-items").append("<span>image_url: </span><input name='image_url' ><br>");
+        }
+    }
+    function print_items(){
+        var items = $(".carousel-items").children();
+        for(var i = 0; i<items.length; i++){
+            alert(items[i].children[1].value);
+        }
+    }
+</script>
+
+</body>
+</html>
